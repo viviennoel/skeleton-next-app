@@ -1,0 +1,296 @@
+/* General Styling */
+.container {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+/* Cover Section */
+.cover {
+    height: 80vh;
+    background: url('../images/coverGold.png') center center/cover no-repeat; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.71);
+    background-color: black; /* Fallback for the background image */
+    box-shadow: 1px 1px 8px 0px #000000;
+    z-index: 1;
+    overflow: hidden; /* Ensures pseudo-elements don't overflow */
+    
+    /* Animation for background movement */
+    animation: backgroundMove 50s infinite linear;
+  }
+  
+  /* Pseudo-elements for the black transparent gradient on the sides */
+  .cover::before,
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30vw; /* Adjust the width of the gradient */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent); /* Left-side gradient */
+    z-index: 2; /* Ensure it overlays the content */
+  }
+  
+  .cover::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.9), transparent); /* Right-side gradient */
+  }
+  
+  .cover::before {
+    left: 0;
+  }
+  
+  /* Keyframes for the slow background movement */
+  @keyframes backgroundMove {
+    0% {
+      background-position: center center;
+    }
+    50% {
+      background-position: center top; /* Moves the background upwards */
+    }
+    100% {
+      background-position: center center;
+    }
+  }
+  
+  
+  .slogan {
+    display: none;
+    flex-wrap: wrap;
+    font-size: 5rem;
+    font-family: "Bilbo Swash Caps", cursive;
+    white-space: nowrap;
+    padding: 40px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .slogan {
+      font-size: 2rem;
+    }
+  }
+
+  .slogan.visible {
+    display: flex;
+  }
+  
+  .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(1rem); /* Start with a slight offset */
+    animation: fadeInUp 0.5s forwards; /* Use animation */
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .slogan.visible .letter {
+    animation-delay: var(--delay); /* Use custom property for delay */
+  }
+  
+  
+  .cardsSection {
+    position: relative;
+    background-color: white;
+    padding: 50px 50px 100px 50px;
+
+  }
+
+  .horizontalSection{
+    position: relative;
+    background-color: black;
+    padding: 50px 50px 50px 70px;
+    text-align: center;
+  }
+
+  .horizontalSection p {
+    color: white;
+    text-align: justify;
+    padding: 0 60px;
+  }
+
+  .horizontalSectionDivider{
+    width: 20vw;
+  }
+
+  .horizontalSection::before,
+  .horizontalSection::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px; /* The width of the lines */
+    background-color: #c7a657; /* A subtle, classy color (adjust for your design) */
+    transform: scaleY(0); /* Start with the lines collapsed (for animation) */
+    transition: transform 1s ease-in-out; /* Animation for line appearance */
+  }
+  
+  .horizontalSection::before {
+    left: 10px; /* Left line */
+  }
+  
+  .horizontalSection::after {
+    right: 10px; /* Right line */
+  }
+  
+  .horizontalSection:hover::before,
+  .horizontalSection:hover::after {
+    transform: scaleY(1); /* Animate the lines to full height on hover */
+  }
+  
+  .cardsSection::before,
+  .cardsSection::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px; /* The width of the lines */
+    background-color: #c7a657; /* A subtle, classy color (adjust for your design) */
+    transform: scaleY(0); /* Start with the lines collapsed (for animation) */
+    transition: transform 1s ease-in-out; /* Animation for line appearance */
+  }
+  
+  .cardsSection::before {
+    left: 10px; /* Left line */
+  }
+  
+  .cardsSection::after {
+    right: 10px; /* Right line */
+  }
+  
+  .cardsSection:hover::before,
+  .cardsSection:hover::after {
+    transform: scaleY(1); /* Animate the lines to full height on hover */
+  }
+
+  .sectionContainer{
+    width: 70%;
+    margin: auto;
+    box-shadow: 1px 0px 8px 0px #0000007d;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .card {
+    position: relative;
+    width: 30%;
+    height: 300px;
+    background-color: #f0f0f0;
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 1px 0px 8px 0px #0000007d;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-in-out;
+  }
+
+  /* media query to not display cards as flex on tablet and bellow */
+    @media (max-width: 768px) {
+        .cards {
+        display: block;
+        }
+
+        .card {
+            margin-bottom: 30px;
+            width: 100%;
+        }
+    }
+  
+  .card-1 {
+    transition-delay: 0.2s;
+    background: url('../images/tapis1.jpeg') top center/cover no-repeat;
+  }
+  .card-2 {
+    transition-delay: 0.4s;
+    background: url('../images/tapis2.jpeg') top center/cover no-repeat;
+  }
+  .card-3 {
+    transition-delay: 0.6s;
+    background: url('../images/tapis3.jpg') top center/cover no-repeat;
+  }
+  
+  /* On load animation */
+  .cards .card {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Hover Effect */
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card:hover .cardContent {
+    opacity: 1;
+  }
+  
+  .cardContent {
+    color: white;
+    text-align: center;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0000007d;
+    transition: opacity 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Align the content vertically */
+    justify-content: center; /* Vertically center the content */
+    align-items: center; /* Horizontally center the content */
+    padding: 20px; /* Adjust padding if needed */
+  }
+  
+  .cardContent h3 {
+    font-size: 1.8rem;
+    font-family: "Bilbo Swash Caps", cursive;
+    font-weight: 500;
+  }
+  
+  .cardContent p {
+    font-size: 1rem;
+    font-family: "Mate", serif;
+  }
+
+  .carousel1, .carousel2, .carousel3{
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel1{
+    background: url('../images/tapis1.jpeg') top center/cover no-repeat;
+  }
+
+  .carousel2{
+    background: url('../images/tapis2.jpeg') top center/cover no-repeat;
+  }
+
+  .carousel3{
+    background: url('../images/tapis3.jpg') top center/cover no-repeat;
+  }
+  
+.carousel{
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 1px 0px 8px 0px #0000007d;
+}

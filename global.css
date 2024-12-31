@@ -1,0 +1,17 @@
+body {
+    width: 100vw;
+    background-color: #f1f1f1 !important;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: 'Mate', sans-serif;
+    color: #333;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Ensure no horizontal scrolling */
+  }
